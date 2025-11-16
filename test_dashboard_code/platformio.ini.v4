@@ -1,0 +1,24 @@
+[env:ESP32-S3-Touch-LCD-7B]
+platform = https://github.com/pioarduino/platform-espressif32/releases/download/stable/platform-espressif32.zip
+board = ESP32-S3-Touch-LCD-7B
+framework = arduino
+
+upload_speed = 921600
+monitor_speed = 115200
+
+board_build.f_cpu = 240000000L
+board_build.psram = enabled
+
+build_unflags = -Os
+build_flags =
+    -DDISABLE_ALL_LIBRARY_WARNINGS
+    -DUSB_MODE=1
+    -DARDUINO_USB_CDC_ON_BOOT=0
+    -DCORE_DEBUG_LEVEL=0
+    -D LV_CONF_INCLUDE_SIMPLE
+    -O2
+
+; Si tu veux ajouter explicitement include/ (pas obligatoire normalement)
+; -I include
+
+; lib_deps = lvgl/lvgl @ ^8.4.0
